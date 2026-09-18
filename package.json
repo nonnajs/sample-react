@@ -1,0 +1,49 @@
+{
+    "name": "@nonnajs/sample-react",
+    "version": "1.0.0",
+    "description": "Sample React (Vite) application demonstrating @nonnajs/react - <NonnaProvider> plus useInjection()/useOptionalInjection()/useAllInjections()/useInjector() over @nonnajs/di.",
+    "author": "Manuel Santos <ney.br.santos@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "keywords": [
+        "nonna",
+        "di",
+        "injector",
+        "react",
+        "vite",
+        "sample"
+    ],
+    "scripts": {
+        "compile-deps": "nonna-compile",
+        "predev": "pnpm compile-deps",
+        "dev": "vite",
+        "prebuild": "pnpm compile-deps",
+        "build": "tsc --noEmit && vite build",
+        "preview": "vite preview",
+        "clean:build": "rimraf ./dist",
+        "lint": "eslint . --ext .js,.ts,.tsx",
+        "lint:fix": "pnpm lint --fix",
+        "format": "prettier --check .",
+        "format:fix": "prettier --write .",
+        "pretest": "pnpm compile-deps",
+        "test": "node --test --test-reporter node-test-reporter --require global-jsdom/register --require ts-node/register test/**/*.{test,it.test}.tsx",
+        "tsc": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@nonnajs/di": "workspace:*",
+        "@nonnajs/react": "workspace:*",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1"
+    },
+    "devDependencies": {
+        "@nonnajs/compiler": "workspace:*",
+        "@nonnajs/vite-plugin": "workspace:*",
+        "@testing-library/react": "^16.0.1",
+        "@types/react": "^18.3.1",
+        "@types/react-dom": "^18.3.0",
+        "@vitejs/plugin-react": "^4.3.1",
+        "global-jsdom": "^25.0.0",
+        "jsdom": "^25.0.0",
+        "vite": "^5.4.0"
+    }
+}
